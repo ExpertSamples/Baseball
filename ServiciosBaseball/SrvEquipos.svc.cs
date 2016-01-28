@@ -117,5 +117,56 @@ namespace ServiciosBaseball
 
             return jugadores;
         }
+
+        public Player GetJugador(string idPlayer)
+        {
+            Player jugador = new Player();
+
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BaseBall"].ConnectionString))
+            {
+
+                conn.Open();
+
+                SqlCommand comando = conn.CreateCommand();
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = "select m.playerID, m.nameGiven, m.nameFirst, m.nameLast from master as m ";
+                comando.CommandText += "where m.playerID='" + idPlayer + "' ";
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    jugador = new Player();
+                    jugador.PlayerId = reader.GetString(0);
+                    jugador.NameGiven = reader.GetString(1);
+                    jugador.NameFirst = reader.GetString(2);
+                    jugador.NameLast = reader.GetString(3);
+                }
+
+                conn.Close();
+            }
+
+            return jugador;
+        }
+
+        public void ModificarJugador(Player jugador)
+        {
+            if (jugador == null || String.IsNullOrWhiteSpace(jugador.PlayerId)) return;
+
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BaseBall"].ConnectionString))
+            {
+
+                conn.Open();
+
+                SqlCommand comando = conn.CreateCommand();
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = "update master set namegiven='" + jugador.NameGiven + "'";
+                comando.CommandText += "where playerID='" + jugador.PlayerId + "' ";
+
+                comando.ExecuteNonQuery();
+
+                conn.Close();
+            }
+        }
     }
 }

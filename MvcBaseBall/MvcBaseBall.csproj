@@ -191,7 +191,9 @@
     <Compile Include="Controllers\EjemploController.cs" />
     <Compile Include="Controllers\EquipoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JugadorController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MiWebApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -300,7 +302,9 @@
     <None Include="Service References\ServicioEquipos\SrvEquipos2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\Equipo\_ListaJugadores.cshtml" />
+    <Content Include="Views\Jugador\Index.cshtml" />
+    <Content Include="Views\Equipo\ListaJugadores.cshtml" />
+    <Content Include="Views\Jugador\Modificar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

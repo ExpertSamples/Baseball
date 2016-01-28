@@ -14,7 +14,13 @@
 }
 </ul> 
 
-<ul id="jugadores" style="display:inline-block;vertical-align:top;"></ul>
+<ul id="jugadores" style="display:inline-block;vertical-align:top;">
+    @if (ViewBag.Players != null)
+    {
+        Player[] jugadores = ViewBag.Players;
+        Html.RenderPartial("ListaJugadores", jugadores.ToList());
+    }
+</ul>
 
 @section Scripts {
     @Scripts.Render("~/Scripts/Equipos.js")

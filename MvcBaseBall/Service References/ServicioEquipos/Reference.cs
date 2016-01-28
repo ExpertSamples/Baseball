@@ -38,6 +38,18 @@ namespace MvcBaseBall.ServicioEquipos {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISrvEquipos/GetJugadoresEquipoAño", ReplyAction="http://tempuri.org/ISrvEquipos/GetJugadoresEquipoAñoResponse")]
         System.Threading.Tasks.Task<BaseBall.Modelos.Player[]> GetJugadoresEquipoAñoAsync(string idTeam, int year);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISrvEquipos/GetJugador", ReplyAction="http://tempuri.org/ISrvEquipos/GetJugadorResponse")]
+        BaseBall.Modelos.Player GetJugador(string idPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISrvEquipos/GetJugador", ReplyAction="http://tempuri.org/ISrvEquipos/GetJugadorResponse")]
+        System.Threading.Tasks.Task<BaseBall.Modelos.Player> GetJugadorAsync(string idPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISrvEquipos/ModificarJugador", ReplyAction="http://tempuri.org/ISrvEquipos/ModificarJugadorResponse")]
+        void ModificarJugador(BaseBall.Modelos.Player jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISrvEquipos/ModificarJugador", ReplyAction="http://tempuri.org/ISrvEquipos/ModificarJugadorResponse")]
+        System.Threading.Tasks.Task ModificarJugadorAsync(BaseBall.Modelos.Player jugador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,6 +109,22 @@ namespace MvcBaseBall.ServicioEquipos {
         
         public System.Threading.Tasks.Task<BaseBall.Modelos.Player[]> GetJugadoresEquipoAñoAsync(string idTeam, int year) {
             return base.Channel.GetJugadoresEquipoAñoAsync(idTeam, year);
+        }
+        
+        public BaseBall.Modelos.Player GetJugador(string idPlayer) {
+            return base.Channel.GetJugador(idPlayer);
+        }
+        
+        public System.Threading.Tasks.Task<BaseBall.Modelos.Player> GetJugadorAsync(string idPlayer) {
+            return base.Channel.GetJugadorAsync(idPlayer);
+        }
+        
+        public void ModificarJugador(BaseBall.Modelos.Player jugador) {
+            base.Channel.ModificarJugador(jugador);
+        }
+        
+        public System.Threading.Tasks.Task ModificarJugadorAsync(BaseBall.Modelos.Player jugador) {
+            return base.Channel.ModificarJugadorAsync(jugador);
         }
     }
 }

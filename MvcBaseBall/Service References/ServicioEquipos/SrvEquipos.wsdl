@@ -31,6 +31,18 @@
   <wsdl:message name="ISrvEquipos_GetJugadoresEquipoAño_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetJugadoresEquipoAñoResponse" />
   </wsdl:message>
+  <wsdl:message name="ISrvEquipos_GetJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJugador" />
+  </wsdl:message>
+  <wsdl:message name="ISrvEquipos_GetJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJugadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISrvEquipos_ModificarJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarJugador" />
+  </wsdl:message>
+  <wsdl:message name="ISrvEquipos_ModificarJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarJugadorResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISrvEquipos">
     <wsdl:operation name="GetAñoInicial">
       <wsdl:input wsaw:Action="http://tempuri.org/ISrvEquipos/GetAñoInicial" message="tns:ISrvEquipos_GetAñoInicial_InputMessage" />
@@ -47,6 +59,14 @@
     <wsdl:operation name="GetJugadoresEquipoAño">
       <wsdl:input wsaw:Action="http://tempuri.org/ISrvEquipos/GetJugadoresEquipoAño" message="tns:ISrvEquipos_GetJugadoresEquipoAño_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISrvEquipos/GetJugadoresEquipoAñoResponse" message="tns:ISrvEquipos_GetJugadoresEquipoAño_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvEquipos/GetJugador" message="tns:ISrvEquipos_GetJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvEquipos/GetJugadorResponse" message="tns:ISrvEquipos_GetJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvEquipos/ModificarJugador" message="tns:ISrvEquipos_ModificarJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvEquipos/ModificarJugadorResponse" message="tns:ISrvEquipos_ModificarJugador_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISrvEquipos" type="tns:ISrvEquipos">
@@ -80,6 +100,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetJugadoresEquipoAño">
       <soap:operation soapAction="http://tempuri.org/ISrvEquipos/GetJugadoresEquipoAño" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJugador">
+      <soap:operation soapAction="http://tempuri.org/ISrvEquipos/GetJugador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarJugador">
+      <soap:operation soapAction="http://tempuri.org/ISrvEquipos/ModificarJugador" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

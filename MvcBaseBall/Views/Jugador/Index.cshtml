@@ -1,0 +1,24 @@
+﻿@using BaseBall.Modelos
+@model Player
+@{
+    ViewBag.Title = "View";
+}
+
+@if(Model==null || String.IsNullOrWhiteSpace(Model.PlayerId))
+{
+    <h1>No ha elegido jugador!</h1>
+}
+else
+{
+    <div>
+        @Html.LabelFor(m => m.PlayerId)
+        @Html.TextBoxFor(m => m.PlayerId, new { @readonly = "true" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.NameGiven)
+        @Html.TextBoxFor(m => m.NameGiven)
+    </div>
+}
+
+
+

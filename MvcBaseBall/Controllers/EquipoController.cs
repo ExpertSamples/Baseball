@@ -19,10 +19,13 @@ namespace MvcBaseBall.Controllers
             return View(Equipos.GetEquiposByYear(2014));
         }
 
+
+
         // Post: Equipo
         [HttpPost]
         public ActionResult Index(int year)
         {
+
             ViewBag.Year = year.ToString();
 
             ServicioEquipos.SrvEquiposClient Equipos = new ServicioEquipos.SrvEquiposClient();
@@ -31,13 +34,14 @@ namespace MvcBaseBall.Controllers
         }
 
         
-        public ActionResult Year(int id)
+        public ActionResult Year(string equipo, int year)
         {
-            ViewBag.Year = id.ToString();
 
             ServicioEquipos.SrvEquiposClient Equipos = new ServicioEquipos.SrvEquiposClient();
 
-            return View("Index",Equipos.GetEquiposByYear(id));
+            ViewBag.Players = Equipos.GetJugadoresEquipoAño(equipo, year);
+
+            return View("Index",Equipos.GetEquiposByYear(year));
         }
 
 
@@ -45,7 +49,11 @@ namespace MvcBaseBall.Controllers
         {
             ServicioEquipos.SrvEquiposClient equipos = new ServicioEquipos.SrvEquiposClient();
             List<Player> jugadores = equipos.GetJugadoresEquipoAño(equipo, year).ToList();
-            return View("_ListaJugadores", jugadores);
+
+            ViewBag.Year = year;
+            ViewBag.IdEquipo = equipo;
+
+            return PartialView("ListaJugadores", jugadores);
         }
     }
 }

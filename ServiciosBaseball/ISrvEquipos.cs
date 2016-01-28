@@ -20,5 +20,9 @@ namespace ServiciosBaseball
         List<Equipo> GetEquiposByYear(int year);
         [OperationContract]
         List<Player> GetJugadoresEquipoAño(string idTeam, int year);
+        [OperationContract]
+        Player GetJugador(string idPlayer);
+        [OperationContract]
+        void ModificarJugador(Player jugador);
     }
 }
