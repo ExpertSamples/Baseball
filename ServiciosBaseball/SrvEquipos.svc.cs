@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Threading;
 
 namespace ServiciosBaseball
 {
@@ -54,6 +55,8 @@ namespace ServiciosBaseball
 
         public List<Equipo> GetEquiposByYear(int year)
         {
+            Thread.Sleep(1000);
+
             List<Equipo> equipos = new List<Equipo>();
 
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BaseBall"].ConnectionString))
