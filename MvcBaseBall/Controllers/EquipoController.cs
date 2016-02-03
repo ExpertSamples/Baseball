@@ -94,7 +94,7 @@ namespace MvcBaseBall.Controllers
             ServicioEquipos.SrvEquiposClient equipos = new ServicioEquipos.SrvEquiposClient();
             ViewBag.JugadoresEquipo = equipos.GetJugadoresEquipoAño("ARI", 2014).ToList();
 
-            //ViewBag.JugadoresLibres = equipos.GetJugadoresLibresAño(2014).ToList();
+            //ViewBag.JugadoresLibres = equipos.GetJugadoresLibresAño(2014).ToList(); Cambio sin importancia
 
             return View(eq);
         }
